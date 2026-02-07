@@ -9,3 +9,4 @@ A simple student tracker app made using TypeScript, React, Tailwind CSS and shad
 - `tailwindcss`
 - `shadcn/ui`
 - `zod`
+- `react-hook-form`
