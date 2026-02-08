@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { toast } from "sonner";
 import type { Student } from "@/types";
-import { students as initialStudents } from "@/data";
 import Filter from "./filter";
 import AddDataDialog from "./add-data-dialog";
 import StudentsGrid from "./students-grid";
 
 export default function StudentTracker() {
   // States
-  const [students, setStudents] = useState<Student[]>(initialStudents);
+  const [students, setStudents] = useState<Student[]>(
+    getStudentsFromLocalStorage() ?? [],
+  );
   const [filterOption, setFilterOption] = useState<"all" | Student["gender"]>(
     "all",
   );
@@ -38,6 +39,31 @@ export default function StudentTracker() {
     const captilalizedGender = `${gender[0].toUpperCase()}${gender.slice(1)}`;
     toast.info(`Filter by gender option changed to ${captilalizedGender}`);
   }
+
+  // Normal functions
+  function getStudentsFromLocalStorage() {
+    try {
+      const response = localStorage.getItem("students");
+
+      if (response) {
+        const students: Student[] = JSON.parse(response);
+        return students;
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        console.log(
+          "Failed to get students from local storage:",
+          error.message,
+        );
+      }
+    }
+  }
+
+  // Callbacks and effects
+  const syncStudentsToLocalStorage = useCallback(() => {
+    localStorage.setItem("students", JSON.stringify(students));
+  }, [students]);
+  useEffect(syncStudentsToLocalStorage, [students, syncStudentsToLocalStorage]);
 
   return (
     <section className="container mx-auto px-4 py-16">
