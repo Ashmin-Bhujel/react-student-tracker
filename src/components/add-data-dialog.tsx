@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Plus } from "lucide-react";
-import { toast } from "sonner";
 import type { Student } from "@/types";
 import { studentSchema } from "@/types";
 import {
@@ -82,7 +81,6 @@ export default function AddDataDialog({
   function onSubmit(studentData: Student) {
     onStudentDataAddition(studentData);
     studentForm.reset();
-    toast.success("A new student data added successfully.");
   }
 
   return (
@@ -102,7 +100,7 @@ export default function AddDataDialog({
           </DialogDescription>
         </DialogHeader>
 
-        <form id="add-new-student-data-form">
+        <form id="add-student-data-form">
           <FieldGroup>
             {/* Name */}
             <Controller
@@ -320,7 +318,7 @@ export default function AddDataDialog({
 
           <Button
             type="submit"
-            form="add-new-student-data-form"
+            form="add-student-data-form"
             onClick={(event) => {
               event.preventDefault();
               studentForm.handleSubmit(onSubmit)();
