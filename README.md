@@ -1,6 +1,6 @@
 # React Student Tracker
 
-A simple student tracker app made using TypeScript, React, Tailwind CSS and shadcn.ui.
+A simple student tracker app made using TypeScript, React, Tailwind CSS and shadcn/ui.
 
 ## Tech Stack
 
@@ -8,3 +8,5 @@ A simple student tracker app made using TypeScript, React, Tailwind CSS and shad
 - `react`
 - `tailwindcss`
 - `shadcn/ui`
+- `zod`
+- `react-hook-form`
