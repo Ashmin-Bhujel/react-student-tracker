@@ -12,7 +12,7 @@ import type { Student } from "@/types";
 type FilterProps = {
   filterOption: "all" | Student["gender"] | "none";
   filteredStudentsCount: number;
-  onFilterOptionChange: (value: string) => void;
+  onFilterOptionChange: (gender: string) => void;
 };
 
 export default function Filter({

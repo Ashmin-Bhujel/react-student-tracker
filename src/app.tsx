@@ -25,7 +25,7 @@ export default function App() {
       <StudentTracker />
 
       {/* Toaster */}
-      <Toaster richColors closeButton position="top-center" />
+      <Toaster />
     </main>
   );
 }
