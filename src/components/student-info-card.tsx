@@ -29,15 +29,15 @@ export default function StudentInfoCard({
 }: StudentInfoCardProps) {
   return (
     <Card className="relative mx-auto w-full max-w-sm pt-0">
-      <div className="bg-background/50 absolute inset-0 z-20 aspect-video" />
+      <div className="bg-background/50 absolute inset-0 z-20 aspect-square" />
       {imageURL ? (
         <img
           src={imageURL}
           alt={name}
-          className="relative z-30 aspect-video w-full object-cover"
+          className="relative z-30 aspect-square w-full object-cover"
         />
       ) : (
-        <div className="relative z-30 aspect-video w-full object-cover">
+        <div className="relative z-30 aspect-square w-full object-cover">
           <div className="absolute inset-0 flex items-center justify-center">
             <UserCircle className="text-muted-foreground size-1/2" />
           </div>
