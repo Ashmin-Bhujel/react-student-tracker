@@ -4,6 +4,7 @@ export const students: Student[] = [
   {
     id: crypto.randomUUID(),
     name: "John Doe",
+    dateOfBirth: "2000-01-01",
     imageURL: "",
     grade: "a",
     phoneNumber: "0123456789",
@@ -13,6 +14,7 @@ export const students: Student[] = [
   {
     id: crypto.randomUUID(),
     name: "Jane Parker",
+    dateOfBirth: "2001-01-01",
     imageURL: "",
     grade: "a+",
     phoneNumber: "0123456789",
@@ -22,6 +24,7 @@ export const students: Student[] = [
   {
     id: crypto.randomUUID(),
     name: "Alex Smith",
+    dateOfBirth: "2000-02-04",
     imageURL: "",
     grade: "a+",
     phoneNumber: "0123456789",
