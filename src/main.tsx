@@ -2,10 +2,10 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router";
 import DefaultLayout from "./components/layouts/default-layout";
-import App from "./app";
 import NotFound from "./components/pages/not-found";
-import "./index.css";
 import { Toaster } from "./components/shadcn/ui/sonner";
+import ListStudents from "./components/pages/list-students";
+import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -13,13 +13,7 @@ createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route element={<DefaultLayout />}>
           {/* "/" */}
-          <Route index element={<App />} />
-
-          {/* "/students" */}
-          <Route path="students">
-            <Route index element={<App />} />
-            <Route path="list" element={<App />} />
-          </Route>
+          <Route index element={<ListStudents />} />
 
           {/* "/*" */}
           <Route path="*" element={<NotFound />} />

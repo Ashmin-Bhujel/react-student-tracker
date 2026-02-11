@@ -1,7 +1,9 @@
+import { Link } from "react-router";
+import { Plus } from "lucide-react";
 import Filter from "./filter";
-import AddDataDialog from "./add-data-dialog";
 import StudentsGrid from "./students-grid";
 import useStudentTracker from "@/hooks/useStudentTracker";
+import { Button } from "../shadcn/ui/button";
 
 export default function StudentTracker() {
   const {
@@ -9,12 +11,11 @@ export default function StudentTracker() {
     filteredStudents,
     filteredStudentsCount,
     handleFilterOptionChange,
-    handleStudentDataAddition,
     handleStudentDataDeletion,
   } = useStudentTracker();
 
   return (
-    <section className="container mx-auto px-4 py-16">
+    <section className="container mx-auto min-h-screen px-4 py-16">
       {/* Options */}
       <div className="flex items-end justify-between">
         {/* Filter */}
@@ -28,14 +29,27 @@ export default function StudentTracker() {
         </div>
 
         {/* Add data dialog */}
-        <AddDataDialog onStudentDataAddition={handleStudentDataAddition} />
+        <Link to={"/students/add"}>
+          <Button variant="outline">
+            <Plus />
+            <span>Add new student data</span>
+          </Button>
+        </Link>
       </div>
 
       {/* Students grid */}
-      <StudentsGrid
-        filteredStudents={filteredStudents}
-        onStudentDataDeletion={handleStudentDataDeletion}
-      />
+      {filteredStudents.length === 0 ? (
+        <div className="py-16">
+          <h2 className="text-center text-2xl font-semibold">
+            No Students Data Available
+          </h2>
+        </div>
+      ) : (
+        <StudentsGrid
+          filteredStudents={filteredStudents}
+          onStudentDataDeletion={handleStudentDataDeletion}
+        />
+      )}
     </section>
   );
 }

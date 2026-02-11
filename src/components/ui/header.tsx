@@ -3,14 +3,14 @@ import { Link, NavLink } from "react-router";
 import { Button } from "../shadcn/ui/button";
 
 type NavLinkType = {
-  to: "/students/list" | "/students/add";
+  to: "/" | "/students/add";
   title: "List Students" | "Add Students";
 };
 
 export default function Header() {
   // Normal values
   const navLinks: NavLinkType[] = [
-    { to: "/students/list", title: "List Students" },
+    { to: "/", title: "List Students" },
     {
       to: "/students/add",
       title: "Add Students",
