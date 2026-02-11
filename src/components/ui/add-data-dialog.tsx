@@ -13,13 +13,13 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
+} from "@/components/shadcn/ui/dialog";
 import {
   Field,
   FieldError,
   FieldGroup,
   FieldLabel,
-} from "@/components/ui/field";
+} from "@/components/shadcn/ui/field";
 import {
   Select,
   SelectContent,
@@ -28,11 +28,15 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "./ui/select";
-import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
-import { Input } from "./ui/input";
-import { Button } from "./ui/button";
-import { Calendar } from "./ui/calendar";
+} from "@/components/shadcn/ui/select";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/shadcn/ui/popover";
+import { Input } from "@/components/shadcn/ui/input";
+import { Button } from "@/components/shadcn/ui/button";
+import { Calendar } from "@/components/shadcn/ui/calendar";
 
 type AddDataDialogProps = {
   onStudentDataAddition: (newStudentData: Student) => void;

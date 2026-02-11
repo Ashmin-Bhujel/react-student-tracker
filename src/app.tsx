@@ -1,6 +1,6 @@
 import { UserCircle } from "lucide-react";
-import { Toaster } from "./components/ui/sonner";
-import StudentTracker from "./components/student-tracker";
+import { Toaster } from "./components/shadcn/ui/sonner";
+import StudentTracker from "./components/ui/student-tracker";
 
 export default function App() {
   return (

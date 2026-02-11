@@ -6,7 +6,7 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@/components/shadcn/ui/select";
 import type { Student } from "@/types";
 
 type FilterProps = {
