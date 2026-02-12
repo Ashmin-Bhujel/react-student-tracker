@@ -59,7 +59,7 @@ export default function StudentInfoCard({
             <p className="flex items-center justify-between">
               <span className="flex-1">Date of Birth</span>
               <span className="text-foreground flex-1 text-right">
-                {dateOfBirth}
+                {new Date(dateOfBirth).toLocaleDateString()}
               </span>
             </p>
 
