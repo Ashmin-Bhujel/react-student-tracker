@@ -10,12 +10,14 @@ A simple student tracker app made using TypeScript, React, Tailwind CSS and shad
 - `shadcn/ui`
 - `zod`
 - `react-hook-form`
+- `react-router`
 
 ## Features
 
-- Clean UI
+- Clean and screen size responsive UI
 - Client input validation using `react-hook-form` and `zod`
 - Sync with `localstorage` for data persistence
+- Pages routing
 
 ## Preview
 
