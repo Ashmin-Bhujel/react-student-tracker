@@ -1,13 +1,13 @@
 import { UserCircle } from "lucide-react";
 import type { Student } from "@/types";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/shadcn/ui/button";
 import {
   Card,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@/components/shadcn/ui/card";
 
 type StudentInfoCardProps = {
   student: Student;
@@ -59,7 +59,7 @@ export default function StudentInfoCard({
             <p className="flex items-center justify-between">
               <span className="flex-1">Date of Birth</span>
               <span className="text-foreground flex-1 text-right">
-                {dateOfBirth}
+                {new Date(dateOfBirth).toLocaleDateString()}
               </span>
             </p>
 
