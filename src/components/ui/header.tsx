@@ -29,11 +29,11 @@ export default function Header() {
             </div>
 
             {/* Title */}
-            <div className="flex flex-col">
+            <div className="flex flex-col max-md:hidden">
               <h1 className="text-2xl leading-tight font-bold">
                 React Student Tracker
               </h1>
-              <small className="text-muted-foreground">
+              <small className="text-muted-foreground max-lg:hidden">
                 A simple student tracker app made using TypeScript, React,
                 Tailwind CSS and shadcn/ui.
               </small>

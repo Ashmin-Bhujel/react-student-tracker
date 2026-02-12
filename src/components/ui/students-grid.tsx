@@ -18,7 +18,7 @@ export default function StudentsGrid({
       </header>
 
       {/* Grid */}
-      <div className="grid grid-cols-4 gap-8 max-xl:grid-cols-3">
+      <div className="grid grid-cols-4 gap-8 max-xl:grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1">
         {filteredStudents.map((student) => (
           <StudentInfoCard
             key={student.id}
