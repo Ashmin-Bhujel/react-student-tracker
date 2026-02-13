@@ -65,6 +65,7 @@ export default function useStudentTracker() {
 
   // Return
   return {
+    students,
     filterOption,
     filteredStudents,
     filteredStudentsCount,

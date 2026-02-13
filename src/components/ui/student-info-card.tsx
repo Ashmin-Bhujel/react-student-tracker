@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import { UserCircle } from "lucide-react";
 import type { Student } from "@/types";
 import { Button } from "@/components/shadcn/ui/button";
@@ -27,8 +28,15 @@ export default function StudentInfoCard({
   },
   onStudentDataDeletion,
 }: StudentInfoCardProps) {
+  // React router
+  const navigate = useNavigate();
+
   return (
-    <Card className="relative mx-auto w-full max-w-sm pt-0">
+    <Card
+      className="group relative mx-auto w-full max-w-sm cursor-pointer pt-0"
+      onClick={() => navigate(`/students/${id}`)}
+      title={`View details about ${name}`}
+    >
       <div className="bg-background/50 absolute inset-0 z-20 aspect-square" />
       {imageURL ? (
         <img
@@ -91,6 +99,7 @@ export default function StudentInfoCard({
           variant={"destructive"}
           className="w-full"
           onClick={() => onStudentDataDeletion(id)}
+          title={`Delete student data of ${name}`}
         >
           Delete Student Data
         </Button>
