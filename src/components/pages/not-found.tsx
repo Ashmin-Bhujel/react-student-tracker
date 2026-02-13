@@ -9,9 +9,9 @@ export default function NotFound() {
           Error 404 - Page not Found
         </h2>
 
-        <Link to={"/"}>
-          <Button variant={"outline"}>Go to Home</Button>
-        </Link>
+        <Button variant={"outline"} asChild>
+          <Link to={"/"}>Go to Home</Link>
+        </Button>
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
 import { UserCircle } from "lucide-react";
-import { Link, NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import { Button } from "../shadcn/ui/button";
 
 type NavLinkType = {
@@ -17,29 +17,34 @@ export default function Header() {
     },
   ];
 
+  // React router
+  const navigate = useNavigate();
+
   return (
     <header>
       <div className="container mx-auto flex items-center justify-between p-4">
         {/* Logo and title */}
-        <Link to={"/"}>
-          <div className="flex items-center gap-2">
-            {/* Logo */}
-            <div>
-              <UserCircle className="size-14" />
-            </div>
-
-            {/* Title */}
-            <div className="flex flex-col max-md:hidden">
-              <h1 className="text-2xl leading-tight font-bold">
-                React Student Tracker
-              </h1>
-              <small className="text-muted-foreground max-lg:hidden">
-                A simple student tracker app made using TypeScript, React,
-                Tailwind CSS and shadcn/ui.
-              </small>
-            </div>
+        <div
+          className="flex cursor-pointer items-center gap-2"
+          onClick={() => navigate("/")}
+          title="Go to home"
+        >
+          {/* Logo */}
+          <div>
+            <UserCircle className="size-14" />
           </div>
-        </Link>
+
+          {/* Title */}
+          <div className="flex flex-col max-md:hidden">
+            <h1 className="text-2xl leading-tight font-bold">
+              React Student Tracker
+            </h1>
+            <small className="text-muted-foreground max-lg:hidden">
+              A simple student tracker app made using TypeScript, React,
+              Tailwind CSS and shadcn/ui.
+            </small>
+          </div>
+        </div>
 
         {/* Navbar */}
         <nav>
@@ -49,8 +54,8 @@ export default function Header() {
                 <NavLink
                   to={navLink.to}
                   children={({ isActive }) => (
-                    <Button variant={isActive ? "default" : "ghost"}>
-                      {navLink.title}
+                    <Button variant={isActive ? "default" : "ghost"} asChild>
+                      <span>{navLink.title}</span>
                     </Button>
                   )}
                 ></NavLink>
