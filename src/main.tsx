@@ -7,6 +7,7 @@ import { Toaster } from "./components/shadcn/ui/sonner";
 import ListStudents from "./components/pages/list-students";
 import AddStudents from "./components/pages/add-students";
 import StudentDetails from "./components/pages/student-details";
+import EditStudent from "./components/pages/edit-student";
 import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
@@ -21,6 +22,7 @@ createRoot(document.getElementById("root")!).render(
           <Route path="students">
             <Route path="add" element={<AddStudents />} />
             <Route path=":id" element={<StudentDetails />} />
+            <Route path=":id/edit" element={<EditStudent />} />
           </Route>
 
           {/* "/*" */}
