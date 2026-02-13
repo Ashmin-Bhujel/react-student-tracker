@@ -37,6 +37,18 @@ export default function useStudentTracker() {
     const captilalizedGender = `${gender[0].toUpperCase()}${gender.slice(1)}`;
     toast.info(`Filter by gender option changed to ${captilalizedGender}`);
   }
+  function handleStudentDataUpdation(newStudentData: Student) {
+    setStudents((previousStudents) => [
+      ...previousStudents.map((student) => {
+        if (student.id === newStudentData.id) {
+          return newStudentData;
+        } else {
+          return student;
+        }
+      }),
+    ]);
+    toast.success(`Specified student data updated successfully.`);
+  }
 
   // Normal functions
   function getStudentsFromLocalStorage() {
@@ -65,11 +77,13 @@ export default function useStudentTracker() {
 
   // Return
   return {
+    students,
     filterOption,
     filteredStudents,
     filteredStudentsCount,
     handleFilterOptionChange,
     handleStudentDataAddition,
     handleStudentDataDeletion,
+    handleStudentDataUpdation,
   };
 }

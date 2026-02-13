@@ -29,12 +29,12 @@ export default function StudentTracker() {
         </div>
 
         {/* Add data dialog */}
-        <Link to={"/students/add"}>
-          <Button variant="outline">
+        <Button variant="outline" asChild>
+          <Link to={"/students/add"}>
             <Plus />
             <span>Add new student data</span>
-          </Button>
-        </Link>
+          </Link>
+        </Button>
       </div>
 
       {/* Students grid */}

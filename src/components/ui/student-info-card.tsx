@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { UserCircle } from "lucide-react";
 import type { Student } from "@/types";
 import { Button } from "@/components/shadcn/ui/button";
@@ -11,7 +12,6 @@ import {
 
 type StudentInfoCardProps = {
   student: Student;
-  onStudentDataDeletion: (studentId: Student["id"]) => void;
 };
 
 export default function StudentInfoCard({
@@ -25,7 +25,6 @@ export default function StudentInfoCard({
     rollNumber,
     gender,
   },
-  onStudentDataDeletion,
 }: StudentInfoCardProps) {
   return (
     <Card className="relative mx-auto w-full max-w-sm pt-0">
@@ -87,12 +86,8 @@ export default function StudentInfoCard({
         </CardDescription>
       </CardHeader>
       <CardFooter>
-        <Button
-          variant={"destructive"}
-          className="w-full"
-          onClick={() => onStudentDataDeletion(id)}
-        >
-          Delete Student Data
+        <Button className="w-full" asChild>
+          <Link to={`/students/${id}`}>View More</Link>
         </Button>
       </CardFooter>
     </Card>
