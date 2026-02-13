@@ -11,7 +11,6 @@ export default function StudentTracker() {
     filteredStudents,
     filteredStudentsCount,
     handleFilterOptionChange,
-    handleStudentDataDeletion,
   } = useStudentTracker();
 
   return (
@@ -45,10 +44,7 @@ export default function StudentTracker() {
           </h2>
         </div>
       ) : (
-        <StudentsGrid
-          filteredStudents={filteredStudents}
-          onStudentDataDeletion={handleStudentDataDeletion}
-        />
+        <StudentsGrid filteredStudents={filteredStudents} />
       )}
     </section>
   );
