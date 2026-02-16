@@ -96,6 +96,20 @@ export default function StudentForm({ isEditForm = false }: StudentFormProps) {
   // Handler functions
   function onSubmit(studentData: Student) {
     if (!isEditForm) {
+      // Check if student with same roll number already exists or not
+      const hasStudentWithSameRollNumber = students.find(
+        (student) => student.rollNumber === studentData.rollNumber,
+      );
+
+      if (hasStudentWithSameRollNumber) {
+        studentForm.setError("rollNumber", {
+          type: "validate",
+          message: "Student with same roll no already exists.",
+        });
+
+        return;
+      }
+
       handleStudentDataAddition(studentData);
       // Navigate to students list after submission
       navigate("/");
