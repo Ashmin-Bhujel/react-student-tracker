@@ -2,6 +2,7 @@ import { UserCircle } from "lucide-react";
 import { NavLink, useNavigate } from "react-router";
 import { Button } from "../shadcn/ui/button";
 
+// Type definition for navlink
 type NavLinkType = {
   to: "/" | "/students/add";
   title: "List Students" | "Add Students";

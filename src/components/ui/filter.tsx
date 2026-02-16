@@ -9,6 +9,7 @@ import {
 } from "@/components/shadcn/ui/select";
 import type { Student } from "@/types";
 
+// Type definition for filter props
 type FilterProps = {
   filterOption: "all" | Student["gender"] | "none";
   filteredStudentsCount: number;
@@ -34,6 +35,7 @@ export default function Filter({
       <SelectTrigger className="w-full max-w-48">
         <SelectValue placeholder="Select a filter" />
       </SelectTrigger>
+
       <SelectContent position="popper">
         <SelectGroup>
           <SelectLabel>Gender</SelectLabel>

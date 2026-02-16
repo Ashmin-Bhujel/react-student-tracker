@@ -42,10 +42,12 @@ export default function StudentInfoCard({
           </div>
         </div>
       )}
+
       <CardHeader>
         <CardTitle>
           <span className="text-xl font-semibold">{name}</span>
         </CardTitle>
+
         <CardDescription>
           <div>
             <p className="flex items-center justify-between">
@@ -85,6 +87,7 @@ export default function StudentInfoCard({
           </div>
         </CardDescription>
       </CardHeader>
+
       <CardFooter>
         <Button className="w-full" asChild>
           <Link to={`/students/${id}`}>View More</Link>

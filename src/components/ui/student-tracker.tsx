@@ -2,8 +2,8 @@ import { Link } from "react-router";
 import { Plus } from "lucide-react";
 import Filter from "./filter";
 import StudentsGrid from "./students-grid";
-import useStudentTracker from "@/hooks/useStudentTracker";
 import { Button } from "../shadcn/ui/button";
+import { useStudentsContext } from "@/contexts/students-context";
 
 export default function StudentTracker() {
   const {
@@ -11,7 +11,7 @@ export default function StudentTracker() {
     filteredStudents,
     filteredStudentsCount,
     handleFilterOptionChange,
-  } = useStudentTracker();
+  } = useStudentsContext();
 
   return (
     <section className="container mx-auto min-h-screen px-4 py-16">
