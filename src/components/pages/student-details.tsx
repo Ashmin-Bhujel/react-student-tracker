@@ -1,4 +1,3 @@
-import useStudentTracker from "@/hooks/useStudentTracker";
 import { useMemo } from "react";
 import { Link, useNavigate, useParams } from "react-router";
 import {
@@ -10,10 +9,11 @@ import {
 } from "../shadcn/ui/card";
 import { UserCircle } from "lucide-react";
 import { Button } from "../shadcn/ui/button";
+import { useStudentsContext } from "@/contexts/students-context";
 
 export default function StudentDetails() {
-  // Custom hooks
-  const { students, handleStudentDataDeletion } = useStudentTracker();
+  // Use student context
+  const { students, handleStudentDataDeletion } = useStudentsContext();
 
   // React router
   const { id } = useParams();
@@ -22,6 +22,10 @@ export default function StudentDetails() {
   // Memoized values
   const student = useMemo(() => {
     try {
+      if (!id) {
+        return null;
+      }
+
       const data = students.find((student) => student.id === id);
 
       if (!data) {
@@ -37,6 +41,7 @@ export default function StudentDetails() {
     }
   }, [students, id]);
 
+  // Render if student data is unavailable
   if (!student) {
     return (
       <section className="container mx-auto min-h-screen px-4 py-16 text-center">
@@ -45,6 +50,7 @@ export default function StudentDetails() {
     );
   }
 
+  // Render if student data is available
   return (
     <section className="container mx-auto min-h-screen px-4 pt-16">
       <Card className="group relative mx-auto w-full max-w-lg pt-0">
@@ -62,10 +68,13 @@ export default function StudentDetails() {
             </div>
           </div>
         )}
+
+        {/* Student details */}
         <CardHeader>
           <CardTitle>
             <span className="text-xl font-semibold">{student.name}</span>
           </CardTitle>
+
           <CardDescription>
             <div>
               <p className="flex items-center justify-between">
@@ -105,11 +114,15 @@ export default function StudentDetails() {
             </div>
           </CardDescription>
         </CardHeader>
+
         <CardFooter>
           <div className="flex w-full items-center gap-1">
+            {/* Edit button */}
             <Button variant={"secondary"} className="flex-1" asChild>
               <Link to={"edit"}>Edit Student Data</Link>
             </Button>
+
+            {/* Delete button */}
             <Button
               variant={"destructive"}
               className="flex-1"

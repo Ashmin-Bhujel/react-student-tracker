@@ -1,5 +1,6 @@
 import * as z from "zod";
 
+// Student schema
 export const studentSchema = z.object({
   id: z.uuid(),
   name: z
@@ -19,4 +20,5 @@ export const studentSchema = z.object({
   gender: z.enum(["male", "female", "other", "unspecified"]),
 });
 
+// Infer type definition for student from student schema
 export type Student = z.infer<typeof studentSchema>;

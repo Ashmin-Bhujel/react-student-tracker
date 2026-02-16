@@ -1,7 +1,6 @@
 import { Controller, useForm } from "react-hook-form";
 import { Field, FieldError, FieldGroup, FieldLabel } from "../shadcn/ui/field";
 import { useEffect, useMemo, useState } from "react";
-import useStudentTracker from "@/hooks/useStudentTracker";
 import { useNavigate, useParams } from "react-router";
 import { studentSchema, type Student } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -18,7 +17,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../shadcn/ui/select";
+import { useStudentsContext } from "@/contexts/students-context";
 
+// Type definition for student form props
 type StudentFormProps = {
   isEditForm?: boolean;
 };
@@ -26,11 +27,10 @@ type StudentFormProps = {
 export default function StudentForm({ isEditForm = false }: StudentFormProps) {
   // States
   const [datePickerOpen, setDatePickerOpen] = useState(false);
-  const { handleStudentDataAddition, handleStudentDataUpdation } =
-    useStudentTracker();
 
-  // Custom hooks
-  const { students } = useStudentTracker();
+  // Student context
+  const { students, handleStudentDataAddition, handleStudentDataUpdation } =
+    useStudentsContext();
 
   // React router
   const navigate = useNavigate();
@@ -39,6 +39,10 @@ export default function StudentForm({ isEditForm = false }: StudentFormProps) {
   // Memoized values
   const student = useMemo(() => {
     try {
+      if (!id) {
+        return null;
+      }
+
       const data = students.find((student) => student.id === id);
 
       if (!data) {
@@ -99,7 +103,7 @@ export default function StudentForm({ isEditForm = false }: StudentFormProps) {
     }
 
     handleStudentDataUpdation(studentData);
-    // Navigate to student details page
+    // Navigate to student details page after updation
     navigate(`/students/${studentData.id}`);
   }
 

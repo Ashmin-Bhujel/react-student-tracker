@@ -1,12 +1,22 @@
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "sonner";
+import type { ReactNode } from "react";
 import type { Student } from "@/types";
-import { students as initialStudents } from "@/data";
+import { initialStudentsData } from "@/data";
+import { studentsContext } from "./students-context";
 
-export default function useStudentTracker() {
+// Type definition for students context provider props
+type StudentsContextProviderProps = {
+  children: ReactNode;
+};
+
+// Student context provider
+export default function StudentContextProvider({
+  children,
+}: StudentsContextProviderProps) {
   // States
   const [students, setStudents] = useState<Student[]>(
-    getStudentsFromLocalStorage() ?? initialStudents,
+    getStudentsFromLocalStorage() ?? initialStudentsData,
   );
   const [filterOption, setFilterOption] = useState<"all" | Student["gender"]>(
     "all",
@@ -76,14 +86,20 @@ export default function useStudentTracker() {
   useEffect(syncStudentsToLocalStorage, [students, syncStudentsToLocalStorage]);
 
   // Return
-  return {
-    students,
-    filterOption,
-    filteredStudents,
-    filteredStudentsCount,
-    handleFilterOptionChange,
-    handleStudentDataAddition,
-    handleStudentDataDeletion,
-    handleStudentDataUpdation,
-  };
+  return (
+    <studentsContext.Provider
+      value={{
+        students,
+        filterOption,
+        filteredStudents,
+        filteredStudentsCount,
+        handleFilterOptionChange,
+        handleStudentDataAddition,
+        handleStudentDataDeletion,
+        handleStudentDataUpdation,
+      }}
+    >
+      {children}
+    </studentsContext.Provider>
+  );
 }
