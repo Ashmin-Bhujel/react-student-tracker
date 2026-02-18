@@ -1,4 +1,5 @@
 import type { Student } from "@/types";
+
 import StudentInfoCard from "./student-info-card";
 
 // Type definition for students grid props

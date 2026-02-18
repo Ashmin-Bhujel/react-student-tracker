@@ -1,14 +1,16 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router";
-import StudentsContextProvider from "./contexts/students-context-provider";
-import { Toaster } from "./components/shadcn/ui/sonner";
+
 import DefaultLayout from "./components/layouts/default-layout";
-import NotFound from "./components/pages/not-found";
-import ListStudents from "./components/pages/list-students";
 import AddStudents from "./components/pages/add-students";
-import StudentDetails from "./components/pages/student-details";
 import EditStudent from "./components/pages/edit-student";
+import ListStudents from "./components/pages/list-students";
+import NotFound from "./components/pages/not-found";
+import StudentDetails from "./components/pages/student-details";
+import { Toaster } from "./components/shadcn/ui/sonner";
+import StudentsContextProvider from "./contexts/students-context-provider";
+
 import "./index.css";
 
 createRoot(document.getElementById("root")!).render(

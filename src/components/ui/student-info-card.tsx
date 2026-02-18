@@ -1,6 +1,7 @@
-import { Link } from "react-router";
-import { UserCircle } from "lucide-react";
 import type { Student } from "@/types";
+import { UserCircle } from "lucide-react";
+import { Link } from "react-router";
+
 import { Button } from "@/components/shadcn/ui/button";
 import {
   Card,

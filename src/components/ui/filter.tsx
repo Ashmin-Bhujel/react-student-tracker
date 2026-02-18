@@ -1,3 +1,5 @@
+import type { Student } from "@/types";
+
 import {
   Select,
   SelectContent,
@@ -7,7 +9,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/shadcn/ui/select";
-import type { Student } from "@/types";
 
 // Type definition for filter props
 type FilterProps = {

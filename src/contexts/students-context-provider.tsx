@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
-import { toast } from "sonner";
 import type { ReactNode } from "react";
-import type { Student } from "@/types";
 import { initialStudentsData } from "@/data";
+import type { Student } from "@/types";
+import { toast } from "sonner";
+
 import { studentsContext } from "./students-context";
 
 // Type definition for students context provider props

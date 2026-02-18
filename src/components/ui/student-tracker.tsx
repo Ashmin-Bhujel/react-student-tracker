@@ -1,9 +1,10 @@
-import { Link } from "react-router";
+import { useStudentsContext } from "@/contexts/students-context";
 import { Plus } from "lucide-react";
+import { Link } from "react-router";
+
+import { Button } from "../shadcn/ui/button";
 import Filter from "./filter";
 import StudentsGrid from "./students-grid";
-import { Button } from "../shadcn/ui/button";
-import { useStudentsContext } from "@/contexts/students-context";
 
 export default function StudentTracker() {
   const {

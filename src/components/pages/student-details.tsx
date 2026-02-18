@@ -1,5 +1,9 @@
 import { useMemo } from "react";
+import { useStudentsContext } from "@/contexts/students-context";
+import { UserCircle } from "lucide-react";
 import { Link, useNavigate, useParams } from "react-router";
+
+import { Button } from "../shadcn/ui/button";
 import {
   Card,
   CardDescription,
@@ -7,9 +11,6 @@ import {
   CardHeader,
   CardTitle,
 } from "../shadcn/ui/card";
-import { UserCircle } from "lucide-react";
-import { Button } from "../shadcn/ui/button";
-import { useStudentsContext } from "@/contexts/students-context";
 
 export default function StudentDetails() {
   // Use student context
