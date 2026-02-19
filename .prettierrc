@@ -7,6 +7,7 @@
   "importOrder": [
     "^(react/(.*)$)|^(react$)",
     "^(next/(.*)$)|^(next$)",
+    "<BUILTIN_MODULES>",
     "<THIRD_PARTY_MODULES>",
     "",
     "^@workspace/(.*)$",
@@ -25,14 +26,9 @@
     "",
     "^[./]"
   ],
-  "importOrderSeparation": false,
-  "importOrderSortSpecifiers": true,
-  "importOrderBuiltinModulesToTop": true,
   "importOrderParserPlugins": ["typescript", "jsx", "decorators-legacy"],
-  "importOrderMergeDuplicateImports": true,
-  "importOrderCombineTypeAndValueImports": false,
   "plugins": [
-    "prettier-plugin-tailwindcss",
-    "@ianvs/prettier-plugin-sort-imports"
+    "@ianvs/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss"
   ]
 }
